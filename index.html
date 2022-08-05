@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <meta http-equiv="refresh" content="7200" />
 <html>
+
+<!--
+
+Thank you Unsplash and Freedom Forum for access to both awesome images and front page newspaper covers!
+
+-->
+
 <head>
 <style>
 
 body {
   margin: 0;
+
+  /*Unsplash image set as body background because that's the biggest I ever want the canvas for the EO*/
   background-image: url("https://source.unsplash.com/random/1080x1920");
   background-repeat: no-repeat;
 }
@@ -17,24 +26,37 @@ div#container {
 }
 
  img#nytimes {
-  opacity: 0.4;
+  opacity: 0.35;
 }
 
 </style>
 </head>
 
-<!--
-
-Thank you Unsplash and Freedom Forum for access to both awesome images and front page newspaper covers!
-
--->
-
 <body>
 
-<!--Unsplash image set as body background because that's the biggest I ever want the canvas for the EO-->
+
 
 <div id="container">
-  <img id="nytimes" src="https://cdn.freedomforum.org/dfp/jpg1/lg/NY_NYT.jpg" width="1080px" height="1920px">
+
+  <!--
+  * Using a little JS to construct the NYTimes URL.. at least a best guess for now
+  * Guessing that URL changes with the day of the week for now
+  * Putting all of the JS here since it's the only JS.
+  -->
+  <script type="text/javascript">
+    var day = new Date().getDay();
+    var imgSrc = "https://cdn.freedomforum.org/dfp/jpg" + day + "/lg/NY_NYT.jpg";
+
+
+    var image = document.createElement("img");
+    var imageParent = document.getElementById("container");
+    image.id = "nytimes";
+    image.src = imgSrc;
+    image.width = "1080";
+    image.height = "1920";
+    imageParent.appendChild(image);
+  </script>
+
 </div>
 
 </body>
