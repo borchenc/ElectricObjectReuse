@@ -39,13 +39,13 @@ div#container {
 <div id="container">
 
   <!--
-  * Using a little JS to construct the NYTimes URL.. at least a best guess for now
-  * Guessing that URL changes with the day of the week for now
+  * Using a little JS to construct the NYTimes URL...
+  * Looks like it's the date and not day of week
   * Putting all of the JS here since it's the only JS.
   -->
   <script type="text/javascript">
-    var day = new Date().getDay();
-    var imgSrc = "https://cdn.freedomforum.org/dfp/jpg" + day + "/lg/NY_NYT.jpg";
+    var date = new Date().getDate();
+    var imgSrc = "https://cdn.freedomforum.org/dfp/jpg" + date + "/lg/NY_NYT.jpg";
 
 
     var image = document.createElement("img");
